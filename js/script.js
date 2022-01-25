@@ -11,7 +11,7 @@ for (i = 0; i < lengthArray; i++) {
 for (i = 0; i < arr.length; i++) {
 	newDiv = document.createElement('div');
 
-	if (+arr[i] % 2 == 0) {
+	if (arr[i] % 2 == 0) {
 		newDiv.innerHTML = `${arr[i]} - четное`;
 	} newDiv.innerHTML = `${arr[i]} - нечетное`;
 
