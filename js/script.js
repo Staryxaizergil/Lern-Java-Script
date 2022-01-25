@@ -10,7 +10,11 @@ for (i = 0; i < lengthArray; i++) {
 
 for (i = 0; i < arr.length; i++) {
 	newDiv = document.createElement('div');
-	newDiv.innerHTML = arr[i];
+
+	if (+arr[i] % 2 == 0) {
+		newDiv.innerHTML = `${arr[i]} - четное`;
+	} newDiv.innerHTML = `${arr[i]} - нечетное`;
+
 	newDiv.style.border = '2px solid blue';
 	document.body.append(newDiv);
 }
