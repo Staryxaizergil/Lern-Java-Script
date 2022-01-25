@@ -13,9 +13,15 @@ for (i = 0; i < arr.length; i++) {
 
 	if (arr[i] % 2 == 0) {
 		newDiv.innerHTML = `${arr[i]} - четное`;
-	} newDiv.innerHTML = `${arr[i]} - нечетное`;
+	} else newDiv.innerHTML = `${arr[i]} - нечетное`;
 
 	newDiv.style.border = '2px solid blue';
 	document.body.append(newDiv);
 }
 
+let elem = document.getElementsByTagName('div');
+
+elem.addEventListener('click', () => {
+	for (let i = 0; i < elem.length; i++)
+		elem.remove();
+})
