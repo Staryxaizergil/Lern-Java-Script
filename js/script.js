@@ -10,7 +10,8 @@ for (i = 0; i < lengthArray; i++) {
 
 for (i = 0; i < arr.length; i++) {
 	newDiv = document.createElement('div');
-	newDiv.innerHTML = "arr[i]";
+	newDiv.innerHTML = arr[i];
 	newDiv.style.border = '2px solid blue';
+	document.body.append(newDiv);
 }
 
