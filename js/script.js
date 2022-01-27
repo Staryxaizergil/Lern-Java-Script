@@ -1,32 +1,35 @@
 
-getChair = function () {
-	let lengthArray = document.getElementsById("chair").value;
+function createBlocks() {
+	let lengthArray = document.getElementById("chair").value;
+	drawBlocks(lengthArray);
 }
 
+function drawBlocks(countBlocks) {
+	for (i = 0; i < countBlocks; i++) {
+		let value = Math.round(Math.random() * 100, 1);
 
-/*let lengthArray = document.getElementById('chair').value;
-console.log(lengthArray);
-*/
-let arr = [];
-
-for (i = 0; i < lengthArray; i++) {
-	arr.push(Math.round(Math.random() * 100, 1));
+		drawBlock(value);
+	}
 }
 
-for (i = 0; i < arr.length; i++) {
+function drawBlock(num) {
 	let newDiv = document.createElement('div');
 
-	if (arr[i] % 2 == 0) {
-		newDiv.innerHTML = `${arr[i]} - четное`;
+	if (num % 2 == 0) {
+		newDiv.innerHTML = `${num} - четное`;
 	} else {
-		newDiv.innerHTML = `${arr[i]} - нечетное`;
+		newDiv.innerHTML = `${num} - нечетное`;
 	}
 
 	document.body.append(newDiv);
 
 	newDiv.classList.add('block');
 
-	newDiv.addEventListener('click', () => {
-		newDiv.remove();
+	newDiv.addEventListener('click', (event) => {
+		event.currentTarget.remove();
 	});
 }
+
+/*let lengthArray = document.getElementById('chair').value;
+console.log(lengthArray);
+*/
