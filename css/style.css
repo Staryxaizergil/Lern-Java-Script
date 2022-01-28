@@ -1,29 +1,3 @@
 .block {
 	border: 1px solid green;
 }
-
-.menu {
-	margin: 100px auto;
-	text-align: center;
-}
-.title {
-	font-size: 20px;
-}
-.menu .title::before {
-	content: "▶ ";
-	font-size: 80%;
-	color: green;
-}
-.menu ul {
-	display: none;
-	font-size: 30px;
-	list-style: none;
-}
-.menu.open .title::before {
-	content: "▼  ";
-	font-size: 80%;
-	color: green;
-}
-.menu.open ul {
-	display: block;
-}
