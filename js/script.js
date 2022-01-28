@@ -12,9 +12,9 @@ function drawBlocks(countBlocks) {
 			value,
 			isEven: () => {
 				if (value % 2 == 0) {
-					return `четное`;
+					return true;
 				} else {
-					return `нечетное`;
+					return false;
 				}
 			}
 		}
@@ -26,7 +26,9 @@ function drawBlocks(countBlocks) {
 function drawBlock(blockInfo) {
 	let newDiv = document.createElement('div');
 
-	newDiv.innerHTML = `${blockInfo.value} - ${blockInfo.isEven()}`;
+	let text = (blockInfo.isEven()) ? 'четное' : 'нечетное';
+
+	newDiv.innerHTML = `${blockInfo.value} - ${text}`;
 
 	document.body.append(newDiv);
 
@@ -35,7 +37,27 @@ function drawBlock(blockInfo) {
 	newDiv.addEventListener('click', (event) => {
 		event.currentTarget.remove();
 	});
+
+	if (blockInfo.isEven()) {
+		changeBorderEven(newDiv);
+	} else {
+		changeBorderOdd(newDiv)
+	};
 }
 
-
-
+function changeBorderEven(hoverDiv) {
+	hoverDiv.addEventListener('mouseover', () => {
+		hoverDiv.classList.add('iseven');
+	});
+	hoverDiv.addEventListener('mouseout', () => {
+		hoverDiv.classList.remove('iseven');
+	});
+}
+function changeBorderOdd(hoverDiv) {
+	hoverDiv.addEventListener('mouseover', () => {
+		hoverDiv.classList.add('isodd');
+	});
+	hoverDiv.addEventListener('mouseout', () => {
+		hoverDiv.classList.remove('isodd');
+	});
+}
