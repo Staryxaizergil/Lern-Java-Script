@@ -3,12 +3,12 @@
 	margin: 2px;
 }
 
-.block.iseven {
+.block.iseven:hover {
 	border: 5px solid rgb(236, 61, 8);
 	font-size: 30px;
 }
 
-.block.isodd {
+.block.isodd:hover {
 	border: 5px solid rgb(57, 2, 82);
 	font-size: 30px;
 }
