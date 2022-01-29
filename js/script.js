@@ -18,28 +18,42 @@ function drawBlocks(countBlocks) {
 				}
 			}
 		}
-
 		drawBlock(data);
 	}
 }
 
 function drawBlock(blockInfo) {
 	let newDiv = document.createElement('div');
-	let text = (blockInfo.isEven()) ? 'четное' : 'нечетное';
+	let outNewDiv = document.createElement('div');
+	let text = blockInfo.isEven() ? 'четное' : 'нечетное';
 
 	newDiv.innerHTML = `${blockInfo.value} - ${text}`;
 
-	document.body.append(newDiv);
+	document.body.append(outNewDiv);
+
+	outNewDiv.classList.add('main__block');
+
+	outNewDiv.append(newDiv);
 
 	newDiv.classList.add('block');
 
 	if (blockInfo.isEven()) {
 		newDiv.classList.add('iseven');
+
 	} else {
 		newDiv.classList.add('isodd');
+
 	};
 
-	newDiv.addEventListener('click', (event) => {
-		event.currentTarget.remove();
-	});
+	if (newDiv.classList.contains('iseven')) {
+		newDiv.addEventListener('click', (event) => {
+			newDiv.classList.toggle('isvisible')
+		});
+	};
+
+	if (newDiv.classList.contains('isodd')) {
+		newDiv.addEventListener('click', (event) => {
+			newDiv.classList.toggle('img')
+		});
+	};
 }

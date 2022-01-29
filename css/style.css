@@ -1,14 +1,35 @@
+.main__block {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	margin: 10px;
+	box-sizing: border-box;
+	border: 5px solid rgb(26, 33, 136);
+}
+
 .block {
-	border: 1px solid green;
-	margin: 2px;
+	height: 100%;
+	width: auto;
+	max-width: 100%;
 }
 
 .block.iseven:hover {
 	border: 5px solid rgb(236, 61, 8);
-	font-size: 30px;
 }
 
 .block.isodd:hover {
 	border: 5px solid rgb(57, 2, 82);
-	font-size: 30px;
+}
+.block.isodd:active {
+}
+.main__button {
+	text-align: center;
+}
+
+.block.iseven.isvisible {
+	opacity: 0;
+}
+
+.block.isodd.img {
+	background: url(/img/kisspng-anvil-tool-metal-paper-knife-anvil-5b1fe420dee497.882162291528816672913.jpg);
 }
