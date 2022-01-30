@@ -11,7 +11,7 @@
 	height: 100%;
 	width: auto;
 	max-width: 100%;
-	bo
+	box-sizing: border-box;
 }
 
 .block.iseven:hover {
