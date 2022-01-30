@@ -13,7 +13,7 @@ function createBlocks() {
 	};
 }
 function drawBlocks(countBlocks) {
-	for (i = 0; i < countBlocks; i++) {
+	for (i = 0; i < countBlocks; i += 2) {
 		let value = Math.round(Math.random() * 100, 1);
 		let data = {
 			value,
@@ -25,6 +25,7 @@ function drawBlocks(countBlocks) {
 				}
 			}
 		}
+		drawBlock(data);
 		drawBlock(data);
 	}
 }
