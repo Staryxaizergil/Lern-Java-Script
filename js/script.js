@@ -13,11 +13,23 @@ function createBlocks() {
 	};
 }
 function drawBlocks(countBlocks) {
+	let arr = [];
 	for (i = 0; i < countBlocks; i += 2) {
 		let value = Math.round(Math.random() * 100, 1);
+		arr.push(value);
+		arr.push(value);
+	}
 
-		drawBlock(value);
-		drawBlock(value);
+	function shaffleArray(arr) {
+		var i = arr.length;
+		while (i--) {
+			var j = Math.floor(Math.random() * (i + 1));
+			var tempi = arr[i];
+			var tempj = arr[j];
+			arr[i] = tempj;
+			arr[j] = tempi;
+			drawBlock(arr[i]);
+		}
 	}
 }
 function drawBlock(blockInfo) {
