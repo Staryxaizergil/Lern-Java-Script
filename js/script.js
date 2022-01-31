@@ -18,8 +18,8 @@ function drawBlocks(countBlocks) {
 		let value = Math.round(Math.random() * 100, 1);
 		arr.push(value);
 		arr.push(value);
-	}
-
+	};
+	shaffleArray(arr)
 	function shaffleArray(arr) {
 		var i = arr.length;
 		while (i--) {
@@ -29,7 +29,7 @@ function drawBlocks(countBlocks) {
 			arr[i] = tempj;
 			arr[j] = tempi;
 			drawBlock(arr[i]);
-		}
+		};
 	}
 }
 function drawBlock(blockInfo) {
