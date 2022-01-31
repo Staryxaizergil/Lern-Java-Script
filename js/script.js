@@ -15,42 +15,27 @@ function createBlocks() {
 function drawBlocks(countBlocks) {
 	for (i = 0; i < countBlocks; i += 2) {
 		let value = Math.round(Math.random() * 100, 1);
-		let data = {
-			value,
-			isEven: () => {
-				if (value % 2 == 0) {
-					return true;
-				} else {
-					return false;
-				}
-			}
-		}
-		drawBlock(data);
-		drawBlock(data);
+
+		drawBlock(value);
+		drawBlock(value);
 	}
 }
 function drawBlock(blockInfo) {
 	let newDiv = document.createElement('div');
 	let outNewDiv = document.createElement('div');
-	let text = blockInfo.isEven() ? 'четное' : 'нечетное';
+	let imgCard = document.createElement('img');
 
-	newDiv.innerHTML = `${blockInfo.value} - ${text}`;
+	newDiv.innerHTML = `${blockInfo} `;
 	newDiv.classList.add('block');
 
+	imgCard.classList.add('img');
 	outNewDiv.classList.add('main__block');
 	outNewDiv.append(newDiv);
+	outNewDiv.append(imgCard);
 
 	document.body.append(outNewDiv);
 
-	if (blockInfo.isEven()) {
-		newDiv.classList.add('iseven');
-		newDiv.addEventListener('click', (event) => {
-			newDiv.classList.toggle('isvisible');
-		});
-	} else {
-		newDiv.classList.add('isodd');
-		newDiv.addEventListener('click', (event) => {
-			newDiv.classList.toggle('img');
-		});
-	};
+	outNewDiv.addEventListener('click', (event) => {
+		imgCard.classList.toggle('display');
+	});
 }
