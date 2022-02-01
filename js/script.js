@@ -50,26 +50,25 @@ function drawBlock(blockInfo) {
 	document.body.append(outNewDiv);
 
 	outNewDiv.addEventListener('click', (event) => {
+		imgCard.classList.toggle('display');
 		clickCount++;
 		if (clickCount === 1) {
 			dataNumber = blockInfo;
 			outNewDivPair = outNewDiv;
+			imgCardPair = imgCard;
 		} else {
 			if (clickCount === 2 && dataNumber === blockInfo) {
 				outNewDiv.classList.add('color');
 				outNewDivPair.classList.add('color');
 				clickCount = 0;
-				console.log(outNewDivPair);
 			} else {
+				setTimeout(() => {
+					imgCardPair.classList.toggle('display');
+					imgCard.classList.toggle('display');
+				}, 600);
 				clickCount = 0;
 			};
 		};
-		// здесь мы знаем какой уже клик
-		// если клик первый - запомнить число
-		// let prevValue;
-		// если клик второй - сравниваем значение
-		// если значения равны - оставляем карточки открытыми и перекрашиваем их
-		imgCard.classList.toggle('display');
 	});
 }
 let clickCount = 0;
