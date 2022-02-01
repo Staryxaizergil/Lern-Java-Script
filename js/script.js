@@ -12,6 +12,7 @@ function createBlocks() {
 		alert('Введите четное число');
 	};
 }
+
 function drawBlocks(countBlocks) {
 	let arr = [];
 	for (i = 0; i < countBlocks; i += 2) {
@@ -20,18 +21,19 @@ function drawBlocks(countBlocks) {
 		arr.push(value);
 	};
 	shaffleArray(arr)
-	function shaffleArray(arr) {
-		var i = arr.length;
+	function shaffleArray(newArray) {
+		let i = newArray.length;
 		while (i--) {
-			var j = Math.floor(Math.random() * (i + 1));
-			var tempi = arr[i];
-			var tempj = arr[j];
-			arr[i] = tempj;
-			arr[j] = tempi;
-			drawBlock(arr[i]);
+			let j = Math.floor(Math.random() * (i + 1));
+			let tempi = arr[i];
+			let tempj = arr[j];
+			newArray[i] = tempj;
+			newArray[j] = tempi;
+			drawBlock(newArray[i]);
 		};
 	}
 }
+
 function drawBlock(blockInfo) {
 	let newDiv = document.createElement('div');
 	let outNewDiv = document.createElement('div');
@@ -48,6 +50,26 @@ function drawBlock(blockInfo) {
 	document.body.append(outNewDiv);
 
 	outNewDiv.addEventListener('click', (event) => {
+		clickCount++;
+		if (clickCount === 1) {
+			dataNumber = blockInfo;
+			outNewDivPair = outNewDiv;
+		} else {
+			if (clickCount === 2 && dataNumber === blockInfo) {
+				outNewDiv.classList.add('color');
+				outNewDivPair.classList.add('color');
+				clickCount = 0;
+				console.log(outNewDivPair);
+			} else {
+				clickCount = 0;
+			};
+		};
+		// здесь мы знаем какой уже клик
+		// если клик первый - запомнить число
+		// let prevValue;
+		// если клик второй - сравниваем значение
+		// если значения равны - оставляем карточки открытыми и перекрашиваем их
 		imgCard.classList.toggle('display');
 	});
 }
+let clickCount = 0;
