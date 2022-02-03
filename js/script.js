@@ -50,25 +50,49 @@ function drawBlock(blockInfo) {
 	document.body.append(outNewDiv);
 
 	outNewDiv.addEventListener('click', (event) => {
-		imgCard.classList.toggle('display');
+		outNewDiv.classList.toggle('isopened');
 		clickCount++;
+
 		if (clickCount === 1) {
 			dataNumber = blockInfo;
 			outNewDivPair = outNewDiv;
-			imgCardPair = imgCard;
+			console.log('first click ', clickCount);
 		} else {
 			if (clickCount === 2 && dataNumber === blockInfo) {
 				outNewDiv.classList.add('color');
 				outNewDivPair.classList.add('color');
 				clickCount = 0;
 			} else {
-				setTimeout(() => {
+				if (clickCount === 2) {
+					console.log('second click ', clickCount);
+					console.log('start timer');
+					closeCardTimer = setTimeout(function () {
+						imgCardPair.classList.toggle('display');
+						imgCard.classList.toggle('display');
+						clickCount = 0;
+						console.log('timeout end ', clickCount);
+					}, 1000);
+				} else {
+					console.log('start: third click ', clickCount);
+					clearTimeout(closeCardTimer);
+					// console.log(clearTimeout);
+					console.log('end: third click ', clickCount);
 					imgCardPair.classList.toggle('display');
 					imgCard.classList.toggle('display');
-				}, 600);
-				clickCount = 0;
+					// function stopTimer(clickCount) {
+					// 	console.log('start: third click ', clickCount);
+					// 	clearTimeout(closeCardTimer);
+					// 	console.log('end: third click ', clickCount);
+					// };
+					clickCount = 1;
+					dataNumber = blockInfo;
+					outNewDivPair = outNewDiv;
+					console.log('no timeout', clickCount);
+				};
+				console.log('end ', clickCount);
 			};
 		};
 	});
 }
 let clickCount = 0;
+let closeCardTimer;
